@@ -17,6 +17,6 @@ export default function Fruit({ name, price, soldout }) {
 
     // rendering the message using the ternary..
     return (
-        <li>{name} {soldout ? '(item is soldout)' : ""}</li>
+        <li>{name} {price} {soldout ? '(item is soldout)' : ""}</li>
     )
 }
