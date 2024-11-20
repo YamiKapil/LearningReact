@@ -1,9 +1,11 @@
+/// note: use state variable to store the data..
+/// note: create the state variable in the app component so we can access it from anywhere
 import { useEffect, useState } from "react";
 
 const URL = "https://api.spoonacular.com/recipes/complexSearch";
 const API_KEY = "01c8864ac2af44e4bc304fc55a53499c";
 
-export default function Search() {
+export default function Search({ foodData, setData }) {
     /// always use hooks inside the components..
     const [query, setQuery] = useState("pizza");
     /// syntax of the useeffect
@@ -13,6 +15,7 @@ export default function Search() {
             /// decoding the json data
             const data = await res.json();
             console.log(data.results);
+            setData(data.results);
         }
         fetchFood();
     }, [query]);
